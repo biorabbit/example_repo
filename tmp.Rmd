@@ -1,0 +1,79 @@
+---
+title: "Simple document"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: true
+---
+
+```{r}
+library(tidyverse)
+```
+
+I'm an R Markdown document! 
+
+# Section 1
+
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r, echo=TRUE ,eval = true, message= TRUE}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+
+# Section 3
+
+This is going to make a plot using `ggplot`
+```{r}
+sample_df = tibble(
+  x = rnorm(1000),
+  y = x + 1
+)
+
+
+
+```
+
+# Prcatice 
+
+```{r}
+adata = data.frame(variable = rnorm(500,mean = 1))
+adata$bool = adata > 0
+adata$abs = abs(adata$variable)
+
+hist(adata$abs)
+
+
+```
+
+meadian value is `r round(median(adata$abs),2)`
+
+
+# Prcatice Answer
+## Sbusection
+
+```{r}
+la_df = tibble(
+  norm = rnorm(1000,mean = 1),
+  logical = norm > 0,
+  abs = abs(norm)
+)
+
+ggplot(la_df, aes(x = abs)) + geom_histogram()
+
+```
+
+meadian value is `r round(median(adata$abs),2)`
+
+
+
+
+
